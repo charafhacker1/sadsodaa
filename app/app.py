@@ -12,6 +12,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_DIR = os.path.join(os.path.dirname(BASE_DIR), "data")
 
 app = Flask(__name__)
+app.secret_key = os.getenv("SECRET_KEY", "change-me")
 app.config["SECRET_KEY"] = os.environ.get("SADSOD_SECRET", "change-me-please")
 # Use DATABASE_URL if provided (Render/Postgres), otherwise local SQLite
 db_url = os.environ.get("DATABASE_URL")
